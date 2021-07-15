@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>Resultado da Consulta de Pacientes</h1>
+  <p>Lista de Pacientes</p>
+  {% if queryPaciente_result_list %}
+    <p>TOTAL: {{queryPaciente_result_list | length}}</p>
+    {% for row in queryPaciente_result_list %}
+    <ul>
+      <li><p>CPF: {{row.cpf}}</p> </li>
+      <li><p>Nome: {{row.nome}}</p> </li>
+      <li><p>Endereço: {{row.endereco}}</p> </li>
+      <li><p>Data de Nascimento: {{row.nascimento}}</p> </li>
+    </ul>
+    <br>
+    {% endfor %}
+  {% else %}
+    <p>Não há resultados disponíveis.</p>
+  {% endif %}
+</body>
+</html>

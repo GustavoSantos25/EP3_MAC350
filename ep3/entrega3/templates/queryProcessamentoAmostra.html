@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>Resultado da Consulta de Amostras processadas mais rapidamente</h1>
+  <p>Lista de Amostras processadas mais rapidamente</p>
+  {% if queryProcessamentoAmostra_result_list %}
+    <p>TOTAL: {{queryProcessamentoAmostra_result_list | length}}</p>
+    {% for row in queryProcessamentoAmostra_result_list %}
+    <ul>
+      <li><p>Código: {{row.id_amostra}}</p> </li>
+      <li><p>Tempo de processamento: {{row.tempo_processamento}}</p> </li>
+    </ul>
+    <br>
+    {% endfor %}
+  {% else %}
+    <p>Não há resultados disponíveis.</p>
+  {% endif %}
+</body>
+</html>

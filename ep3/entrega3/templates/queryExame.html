@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <h1>Resultado da Consulta de Exames</h1>
+  <p>Lista de Exames</p>
+  {% if queryExame_result_list %}
+    <p>TOTAL: {{queryExame_result_list | length}}</p>
+    {% for row in queryExame_result_list %}
+    <ul>
+      <li><p>Tipo: {{row.cpf}}</p> </li>
+      <li><p>Vírus: {{row.nome}}</p> </li>
+      <li><p>Nome do Paciente: {{row.nome_paciente}}</p> </li>
+    </ul>
+    <br>
+    {% endfor %}
+  {% else %}
+    <p>Não há resultados disponíveis.</p>
+  {% endif %}
+</body>
+</html>
