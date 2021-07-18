@@ -7,8 +7,8 @@
     <p>TOTAL: {{queryExame_result_list | length}}</p>
     {% for row in queryExame_result_list %}
     <ul>
-      <li><p>Tipo: {{row.cpf}}</p> </li>
-      <li><p>Vírus: {{row.nome}}</p> </li>
+      <li><p>Tipo: {{row.tipo}}</p> </li>
+      <li><p>Vírus: {{row.virus}}</p> </li>
       <li><p>Nome do Paciente: {{row.nome_paciente}}</p> </li>
     </ul>
     <br>

@@ -4,8 +4,8 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('queryAmostra', views.query1, name='queryAmostra'),
-    path('queryExame', views.query2, name='queryExame'),
-    path('queryPaciente', views.query2, name='queryPaciente'),
-    path('queryProcessamentoAmostra', views.query2, name='queryProcessamentoAmostra')
+    path('queryAmostra', views.queryAmostra, name='queryAmostra'),
+    path('queryExame', views.queryExame, name='queryExame'),
+    path('queryPaciente', views.queryPaciente, name='queryPaciente'),
+    path('queryProcessamentoAmostra', views.queryProcessamentoAmostra, name='queryProcessamentoAmostra')
 ]

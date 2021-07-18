@@ -77,9 +77,9 @@ WSGI_APPLICATION = 'ep3.wsgi.application'
 DATABASES = {
     'default': {
        'ENGINE': 'django.db.backends.postgresql',
-       'NAME': '11221741@data',
-       'USER': '11221741@data',
-       'PASSWORD': 'ielo4ieP',
+       'NAME': '11221932',
+       'USER': '11221932',
+       'PASSWORD': 'eeChee5i',
        'HOST': 'data.ime.usp.br',
        'PORT': '23432',
    }

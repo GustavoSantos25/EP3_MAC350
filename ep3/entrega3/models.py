@@ -12,12 +12,12 @@ class Paciente(models.Model):
                 ]
     
     def __str__(self):
-        return self.cpf +','+ self.nome +','+ self.endereco +','+ self.nascimento 
+        return self.cpf +','+ self.nome +','+ self.endereco +','+ self.nascimento.strftime('%d/%m/%Y') 
 
 class Exame(models.Model):
     tipo = models.CharField(max_length=255)
     virus = models.CharField(max_length=255)
-    id_paciente = models.ForeignKey(Paciente, on_delete=models.PROTECT)
+    paciente = models.ForeignKey(Paciente, on_delete=models.PROTECT)
     
     class Meta:
         constraints = [
@@ -25,7 +25,7 @@ class Exame(models.Model):
                 ]
 
     def __str__(self):
-        return self.tipo +','+ self.virus +','+ self.id_paciente
+        return self.tipo +','+ self.virus +','+ self.paciente.__str__()
 
 class Amostra(models.Model):
     codigo_amostra = models.CharField(max_length=255)
@@ -42,13 +42,13 @@ class Amostra(models.Model):
 
 #Agregado
 class Paciente_Exame_Amostra(models.Model):
-    id_paciente = models.ForeignKey(Paciente, on_delete=models.PROTECT)
-    id_exame = models.ForeignKey(Exame, on_delete=models.PROTECT)
-    id_amostra = models.ForeignKey(Amostra, on_delete=models.PROTECT)
-    data_de_realizacao = models.DateTimeField(auto_now_add=True)
+    paciente = models.ForeignKey(Paciente, on_delete=models.PROTECT)
+    exame = models.ForeignKey(Exame, on_delete=models.PROTECT)
+    amostra = models.ForeignKey(Amostra, on_delete=models.PROTECT)
+    data_de_realizacao = models.DateTimeField()
     data_de_solicitacao = models.DateTimeField(auto_now_add=True)
     
     class Meta:
         constraints = [
-                models.UniqueConstraint(fields=['id_paciente', 'id_exame', 'id_amostra', 'data_de_realizacao'], name='unique_agreg_exame')
+                models.UniqueConstraint(fields=['paciente', 'exame', 'amostra', 'data_de_realizacao'], name='unique_agreg_exame')
                 ]

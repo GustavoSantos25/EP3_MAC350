@@ -7,7 +7,7 @@
     <p>TOTAL: {{queryProcessamentoAmostra_result_list | length}}</p>
     {% for row in queryProcessamentoAmostra_result_list %}
     <ul>
-      <li><p>Código: {{row.id_amostra}}</p> </li>
+      <li><p>Código: {{row.amostra_id}}</p> </li>
       <li><p>Tempo de processamento: {{row.tempo_processamento}}</p> </li>
     </ul>
     <br>
